@@ -1,0 +1,12 @@
+﻿<div *ngIf="shoe" style="border:solid;width: 500px;padding-left: 10px;padding-bottom: 10px; margin-top:20px;">
+    <h2>{{shoe.shoeType}} shoe details:</h2>
+    <div><label>ShoeId: </label>{{shoe.id}}</div>
+    <div>
+        <label>Shoe Type: </label>
+        <input [(ngModel)]="shoe.shoeType" placeholder="Shoe type">
+    </div>
+    <br />
+    <button (click)="goBack()">Back</button>
+    <button (click)="save()">Save</button>
+    <br />
+</div>

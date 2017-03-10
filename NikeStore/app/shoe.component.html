@@ -1,0 +1,26 @@
+﻿<h2>Must have shoes...</h2>
+<div>
+    <label>Shoe Type:</label><input #shoeType />
+    <button (click)="addShoe(shoeType.value); shoeType.value = ''">Add Shoe</button>
+</div>
+<br />
+<div>
+    <div id="cols" style="border:solid; padding-bottom:10px; padding-top:10px;">
+        <ul class="shoes">
+            <li *ngFor="let shoe of shoesArray"
+                [class.selected]="shoe===selectedShoe"
+                (click)="onSelect(shoe)">
+                <span class="badge">{{shoe.id}}</span> 
+                <span>{{shoe.shoeType}}</span>
+                <button class="delete" (click)="deleteShoe(shoe); $event.stopPropagation()">x</button>
+            </li>
+        </ul>
+    </div>
+    <!--<shoe-detail [shoe] ="selectedShoe"></shoe-detail>-->
+    <div *ngIf="selectedShoe">
+        <h2>
+            I like this {{selectedShoe.shoeType | uppercase}} shoe!
+        </h2>
+        <button (click)="gotoDetail()">View Details</button>
+    </div>
+</div>

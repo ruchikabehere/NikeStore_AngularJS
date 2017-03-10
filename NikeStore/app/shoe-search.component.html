@@ -1,0 +1,10 @@
+﻿<div id="search-component">
+    <h4>Shoe Search</h4>
+    <input #searchBox id="search-box" (keyup)="search(searchBox.value)" />
+    <div>
+        <div *ngFor="let shoe of shoesArray | async"
+             (click)="gotoDetail(shoe)" class="search-result">
+            {{shoe.shoeType}}
+        </div>
+    </div>
+</div>
